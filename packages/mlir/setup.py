@@ -209,8 +209,7 @@ cmake_args = [
     f'-DLLVM_ENABLE_ASSERTIONS={"ON" if assertions else "OFF"}',
     '-DLLVM_TARGETS_TO_BUILD=host;X86;ARM;NVPTX;AMDGPU',
     '-DLLVM_ENABLE_PROJECTS=mlir;lld',
-    '-DMLIR_BINDINGS_PYTHON_ENABLED=ON',
-    '-DMLIR_PYTHON_BINDINGS_VERSION_LOCKED=OFF',
+    '-DMLIR_ENABLE_BINDINGS_PYTHON=ON',  
     f'-DPython3_EXECUTABLE:FILEPATH={sys.executable}',
     # Configure the obsolete python executable property too. It can latch
     # incorrectly if it hits the wrong way.
@@ -291,7 +290,7 @@ if not is_windows and use_lld:
 
 report(f'Running cmake (generate): {" ".join(cmake_args)}')
 subprocess.check_call(['cmake'] + cmake_args)
-subprocess.check_call(['cmake', "--build", ".", "--target", "help"])
+subprocess.check_call(['cmake', "--build", build_dir, "--target", "help"])
 if CMAKE_ONLY:
   sys.exit(0)
 
