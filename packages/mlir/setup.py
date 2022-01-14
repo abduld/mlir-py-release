@@ -324,7 +324,7 @@ if not ok:
 # We then put an __init__.py in the top-level install directory with a little
 # API to query for build info and load extensions.
 
-package_dir = os.path.join(install_dir, 'python')
+package_dir = os.path.join(install_dir, 'python_packages', 'mlir_core')
 packages = find_packages(where=package_dir)
 report('Found packages:', packages)
 
@@ -365,13 +365,13 @@ def load_extension(name):
 #   __init__.py (this file)
 #   bin/
 #     MLIRPublicAPI.dll
-#   python/
+#   python_packages/mlir_core/
 #     _mlir.*.pyd (dll extension)
 # First check the bin/ directory level for DLLs co-located with the pyd
 # file, and then fall back to searching the python/ directory.
 _dll_search_path = [
-  os.path.join(_this_directory, "bin"),
-  os.path.join(_this_directory, "python"),
+  os.path.join(_this_directory, "lib"),
+  os.path.join(_this_directory, "python_packages", "mlir_core"),
 ]
 
 # Stash loaded DLLs to keep them alive.
@@ -414,27 +414,22 @@ def _preload_dependency_windows(public_name):
 # Turn the install directory into a valid package.
 with open(os.path.join(install_dir, '__init__.py'), 'wt') as init_file:
   init_file.write(MLIR_LIB_INIT)
-with open(os.path.join(install_dir, 'python', '__init__.py'),
+with open(os.path.join(install_dir, 'python_packages', 'mlir_core', '__init__.py'),
           'wt') as init_file:
   pass
+ 
 
 setup(
     name=f'mlir{version_info.get("package-suffix") or ""}',
     version=version_info.get("package-version") or "0.1a1",
     packages=packages + [
         '_mlir_libs',
-        '_mlir_libs.python',
+        '_mlir_libs.python_packages.mlir_core',
     ],
     package_dir={
-        'mlir': os.path.join(install_dir, 'python', 'mlir'),
+        'mlir': os.path.join(install_dir, 'python_packages', 'mlir_core', 'mlir'),
         '_mlir_libs': os.path.join(install_dir),
     },
-    ext_modules=[
-        # Note that this matches the build/install directory structure,
-        # which makes rpath work properly.
-        Extension(name="_mlir_libs.python._mlir", sources=[]),
-        Extension(name="_mlir_libs.python._mlirTransforms", sources=[]),
-    ],
     package_data={
         '_mlir_libs': [
             # By including the build extensions as package data, it keeps
@@ -448,8 +443,8 @@ setup(
             'lib/*.lib',
             # Note that wild-carding all *.so duplicates all of the symlinks,
             # so we list one by one just the public names.
-            'lib/libMLIRPublicAPI.so',
-            'lib/libMLIRPublicAPI.dylib',
+            'lib/libMLIRPythonCAPI.so',
+            'lib/libMLIRPythonCAPI.dylib',
 
             # Cmake files.
             'lib/cmake/llvm/*.cmake',
