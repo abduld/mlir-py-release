@@ -222,10 +222,11 @@ cmake_targets = [
     # Headers.
     'install-mlir-headers',
     # Python bindings.
-    'install-MLIRBindingsPythonSources',
-    'install-MLIRBindingsPythonDialects',
+    'install-MLIRPythonModules',
+    'install-MLIRPythonTestSources.Dialects',
+    'install-MLIRPythonCAPI',
     # C-API shared library/DLL.
-    f'install-MLIRPublicAPI{stripped}',
+    f'install-MLIRPythonCAPI{stripped}',
     # Python extensions.
     f'install-MLIRTransformsBindingsPythonExtension{stripped}',
     f'install-MLIRCoreBindingsPythonExtension{stripped}',
