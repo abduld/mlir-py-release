@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04]
+        os: [ubuntu-20.04]
         experimental: [false]
         include:
           - os: macos-latest
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/setup-python@v2
         name: Install Python
         with:
-          python-version: '3.7'
+          python-version: '3.7-dev'
 
       - name: Checkout LLVM
         shell: bash
