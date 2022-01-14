@@ -6,3 +6,4 @@ dist/
 *.egg-info
 version_info.json
 .venv
+llvm-project
