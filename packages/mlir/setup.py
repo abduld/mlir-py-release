@@ -291,6 +291,7 @@ if not is_windows and use_lld:
 
 report(f'Running cmake (generate): {" ".join(cmake_args)}')
 subprocess.check_call(['cmake'] + cmake_args)
+subprocess.check_call(['cmake', "--build", ".", "--target", "help"])
 if CMAKE_ONLY:
   sys.exit(0)
 
