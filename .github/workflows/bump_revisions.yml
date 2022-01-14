@@ -4,12 +4,13 @@ on:
   #schedule:
   #  - cron:  '0 10,22 * * *'
 
-  workflow_dispatch:
-    inputs:
-      force_workflow:
-        description: "Force run the workflows even if no changes"
-        required: false
-        default: "true"
+  - push
+  # workflow_dispatch:
+  #   inputs:
+  #     force_workflow:
+  #       description: "Force run the workflows even if no changes"
+  #       required: false
+  #       default: "true"
 
 jobs:
   bump_revisions:
