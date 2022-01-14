@@ -4,9 +4,9 @@ This repository contains setup and packaging scripts for MLIR related
 projects that need to build together. They may eventually go to their
 respective homes, but developing them together for now helps.
 
-[![Build MLIR Wheels](https://github.com/stellaraccident/mlir-py-release/workflows/Build%20MLIR%20Wheels/badge.svg)](https://github.com/stellaraccident/mlir-py-release/actions?query=workflow%3A%22Build+MLIR+Wheels%22+branch%3Amain)
+[![Build MLIR Wheels](https://github.com/abduld/mlir-py-release/workflows/Build%20MLIR%20Wheels/badge.svg)](https://github.com/abduld/mlir-py-release/actions?query=workflow%3A%22Build+MLIR+Wheels%22+branch%3Amain)
 
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/stellaraccident/mlir-py-release?include_prereleases)](https://github.com/stellaraccident/mlir-py-release/releases)
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/abduld/mlir-py-release?include_prereleases)](https://github.com/abduld/mlir-py-release/releases)
 
 
 ## Installation
@@ -25,14 +25,14 @@ Links to more official places:
 
 We are currently only producing snapshot releases twice a day at llvm-project
 head. Each time we bump the revision, we create a new "snapshot" release on
-the [releases page](https://github.com/stellaraccident/mlir-py-release/releases).
+the [releases page](https://github.com/abduld/mlir-py-release/releases).
 
 You can use pip to install the latest for your platform directly from that
 page (or use a link to a specific release). Note that tests have not yet been
 integrated: these may not work at all.
 
 ```shell
-python -m pip install --upgrade mlir-snapshot -f https://github.com/stellaraccident/mlir-py-release/releases
+python -m pip install --upgrade mlir-snapshot -f https://github.com/abduld/mlir-py-release/releases
 ```
 
 And verify some things:
