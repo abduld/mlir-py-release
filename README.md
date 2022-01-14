@@ -74,14 +74,14 @@ This repository is meant to be checked out adjacent to source repositories:
 Not strictly necessary, and if you know what you are doing, do that. Otherwise:
 
 ```shell
-python -m venv create ~/.venv/mlir
+python -m venv ~/.venv/mlir
 source ~/.venv/mlir/bin/activate
 ```
 
 #### Install common dependencies:
 
 ```shell
-python -m pip -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 NOTE: Some older distributions still have `python` as python 2. Make sure you
@@ -92,13 +92,13 @@ are running python3, which on these systems is often `python3`.
 If you are just looking to get packages that you can import and use, do:
 
 ```shell
-python ./setup_mlir.py install
+LLVM_REPO_DIR=`pwd`/llvm-project python ./packages/mlir/setup.py install
 ```
 
 ### Build wheel files (installable archives)
 
 ```shell
-python ./setup_mlir.py bdist_wheel
+LLVM_REPO_DIR=`pwd`/llvm-project python ./packages/mlir/setup.py bdist_wheel
 ```
 
 ## Design methodology

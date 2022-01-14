@@ -222,13 +222,7 @@ cmake_targets = [
     'install-mlir-headers',
     # Python bindings.
     'install-MLIRPythonModules',
-    'install-MLIRPythonTestSources.Dialects',
-    'install-MLIRPythonCAPI',
-    # C-API shared library/DLL.
-    f'install-MLIRPythonCAPI{stripped}',
-    # Python extensions.
-    f'install-MLIRTransformsBindingsPythonExtension{stripped}',
-    f'install-MLIRCoreBindingsPythonExtension{stripped}',
+    'install-MLIRPythonTestDialect'
 ]
 
 ### HACK: Add a Python3_LIBRARY because cmake needs it, but it legitimately
@@ -290,7 +284,6 @@ if not is_windows and use_lld:
 
 report(f'Running cmake (generate): {" ".join(cmake_args)}')
 subprocess.check_call(['cmake'] + cmake_args)
-subprocess.check_call(['cmake', "--build", build_dir, "--target", "help"])
 if CMAKE_ONLY:
   sys.exit(0)
 
