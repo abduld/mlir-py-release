@@ -31,6 +31,5 @@ def vectorAdd():
             a = memref.LoadOp(A, idx)
             b = memref.LoadOp(B, idx)
             res = arith.AddFOp(a, b)
-            memref.StoreOp(res, C, idx)
-            # scf.YieldOp(loop.inner_iter_args)
+            memref.StoreOp(res, C, idx) 
         return C
