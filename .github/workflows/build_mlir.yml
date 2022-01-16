@@ -51,10 +51,9 @@ jobs:
         with:
           path: 'main_checkout'
 
-      - uses: actions/setup-python@v2
-        name: Install Python
-        with:
-          python-version: '3.8'
+      - name: Install Python
+        run: |
+          sudo apt install python3.7-dev
 
       - name: Check Python installation
         shell: bash
