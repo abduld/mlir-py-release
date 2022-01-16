@@ -56,6 +56,16 @@ jobs:
         with:
           python-version: '3.6-dev'
 
+      - name: Check Python installation
+        shell: bash
+        run: |
+          which python
+
+      - name: Check Python version
+        shell: bash
+        run: |
+          python --version
+
       - name: Checkout LLVM
         shell: bash
         run: |
