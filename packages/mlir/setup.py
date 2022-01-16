@@ -219,7 +219,17 @@ cmake_args = [
 
 cmake_targets = [
     # Headers.
+    'install-llvm-headers',
     'install-mlir-headers',
+    # CMake exports.
+    'install-cmake-exports',
+    'install-mlir-cmake-exports',
+    # Shared libs.
+    f'install-MLIR{stripped}',
+    f'install-LLVM{stripped}',
+    # Tools needed to build.
+    f'install-mlir-tblgen{stripped}',
+    f'install-mlir-opt{stripped}',
     # Python bindings.
     'install-MLIRPythonModules',
     'install-MLIRPythonTestDialect'
@@ -263,6 +273,7 @@ if not is_windows and False:
     f'install-LLVM{stripped}',
     # Tools needed to build.
     f'install-mlir-tblgen{stripped}',
+    f'install-mlir-opt{stripped}',
   ])
 
 ### Detect generator.
@@ -452,6 +463,7 @@ setup(
 
             # Build tools.
             'bin/mlir-tblgen*',
+            'bin/mlir-opt*',
         ] + header_files,
     },
     description='MLIR Python API',
