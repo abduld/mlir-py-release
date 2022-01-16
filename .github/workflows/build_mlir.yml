@@ -53,7 +53,7 @@ jobs:
 
       - name: Install Python
         run: |
-          sudo apt install python3.7-dev
+          sudo apt install python3-dev
 
       - name: Check Python installation
         shell: bash
