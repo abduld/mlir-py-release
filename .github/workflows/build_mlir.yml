@@ -66,6 +66,11 @@ jobs:
         run: |
           python --version
 
+      - name: Check CMake version
+        shell: bash
+        run: |
+          cmake --version
+
       - name: Checkout LLVM
         shell: bash
         run: |
