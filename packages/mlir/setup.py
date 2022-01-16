@@ -211,11 +211,11 @@ cmake_args = [
     '-DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=NVPTX;AMDGPU',
     '-DLLVM_ENABLE_PROJECTS=mlir;lld',
     '-DMLIR_ENABLE_BINDINGS_PYTHON=ON',  
-    f'-DPython3_EXECUTABLE:FILEPATH={sys.executable}',
+    # f'-DPython3_EXECUTABLE:FILEPATH={sys.executable}',
     # Configure the obsolete python executable property too. It can latch
     # incorrectly if it hits the wrong way.
-    f'-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}',
-    f'-DPython3_INCLUDE_DIR:PATH={sysconfig.get_path("include")}',
+    # f'-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}',
+    # f'-DPython3_INCLUDE_DIR:PATH={sysconfig.get_path("include")}',
 ]
 
 cmake_targets = [
