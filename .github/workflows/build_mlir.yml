@@ -101,8 +101,13 @@ jobs:
       - name: Build wheels
         shell: bash
         run: |
-          python -m cibuildwheel --output-dir wheelhouse \
-            ./main_checkout/packages/mlir
+          python ./main_checkout/packages/setup.py bdist_wheel
+
+      # - name: Build wheels
+      #   shell: bash
+      #   run: |
+      #     python -m cibuildwheel --output-dir wheelhouse \
+      #       ./main_checkout/packages/mlir
 
       - uses: actions/upload-artifact@v2
         with:
