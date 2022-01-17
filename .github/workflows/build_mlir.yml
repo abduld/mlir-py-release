@@ -101,6 +101,7 @@ jobs:
       - name: Build wheels
         shell: bash
         run: |
+          pip install -r ./main_checkout/requirements.txt
           python ./main_checkout/packages/mlir/setup.py bdist_wheel
 
       # - name: Build wheels
